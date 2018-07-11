@@ -3,7 +3,9 @@ Google Captcha
 //Render captcha:
 //Add this to form
 
-<div id="recaptcha"></div>
+```
+	<div id="recaptcha"></div>
+```
 
 ```
 	var widget1;
