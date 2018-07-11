@@ -30,3 +30,15 @@ Google Captcha
 
 // Place script before the end of BODY tag
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+
+
+==================================================================================
+
+// SAMPLE
+<form id="formKyc" novalidate>
+	<div class="form-group">
+	     <div id="recaptcha"></div>
+	</div>
+	<button class="btn btn-primary btn-lg" id="sumbit_kyc" type="submit">Submit</button>
+</form>
+
