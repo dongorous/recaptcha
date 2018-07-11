@@ -35,64 +35,64 @@ Google Captcha
 
 // SAMPLE
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>kyc</title>
-</head>
-<body>
-    
-    <form id="formKyc" novalidate>
-        <div class="form-group">
-            <div id="recaptcha"></div>
-        </div>
-        <button class="btn btn-primary btn-lg" id="sumbit_kyc" type="submit">Submit</button>
-    </form>
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	    <title>kyc</title>
+	</head>
+	<body>
 
-    <script>
-        var widget1;
-        var onloadCallback = function() {
-            var sitekey = 'xxxxxxxxx';
+	    <form id="formKyc" novalidate>
+		<div class="form-group">
+		    <div id="recaptcha"></div>
+		</div>
+		<button class="btn btn-primary btn-lg" id="sumbit_kyc" type="submit">Submit</button>
+	    </form>
 
-                if ( $('#recaptcha1').length ) {
-                    widget1 = grecaptcha.render('recaptcha', {
-                    'sitekey': sitekey,
-                    'callback': verifyCallbackCaptcha,
-                    'expired-callback': onRecaptchaExpired
-                    });
-                }
-            };
-        }
+	    <script>
+		var widget1;
+		var onloadCallback = function() {
+		    var sitekey = 'xxxxxxxxx';
 
-        var verifyCallbackCaptcha = function(response) {
-            console.log(response);
-        };
+			if ( $('#recaptcha1').length ) {
+			    widget1 = grecaptcha.render('recaptcha', {
+			    'sitekey': sitekey,
+			    'callback': verifyCallbackCaptcha,
+			    'expired-callback': onRecaptchaExpired
+			    });
+			}
+		    };
+		}
 
-        var onRecaptchaExpired = function() {
-            grecaptcha.reset(widget1);
-        };
+		var verifyCallbackCaptcha = function(response) {
+		    console.log(response);
+		};
 
-        $('body').on('submit', '#formKyc', function (e) {
-            e.preventDefault();
-            var formData = new FormData( $(this)[0] );
+		var onRecaptchaExpired = function() {
+		    grecaptcha.reset(widget1);
+		};
 
-            $.ajax({
-                url : "xxx/idm/upload",
-                type : 'POST',
-                data : formData,
-                contentType : false,
-                processData : false,
-                success : function (data){
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
+		$('body').on('submit', '#formKyc', function (e) {
+		    e.preventDefault();
+		    var formData = new FormData( $(this)[0] );
 
-                }
-            });
-        });
-    </script>
+		    $.ajax({
+			url : "xxx/idm/upload",
+			type : 'POST',
+			data : formData,
+			contentType : false,
+			processData : false,
+			success : function (data){
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
 
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
-</body>
+			}
+		    });
+		});
+	    </script>
+
+	    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+	</body>
 </html>
