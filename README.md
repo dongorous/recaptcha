@@ -2,6 +2,7 @@ Google Captcha
 
 //Render captcha:
 //Add this to form
+
 <div id="recaptcha"></div>
 
 ```
